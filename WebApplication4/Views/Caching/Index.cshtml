@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Indice</h2>
+
+<br />
+<div class="container">
+    <div class="row">
+        <h1 style="color:deepskyblue">
+            Bienvenido a Disney...
+        </h1>
+    </div>
+    <div class="col-md-12">
+        <img src="~/Images/disney.jpg" style="width:300px" height="300" />
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            @Html.ActionLink("Ir a Héroes", "MostrarImagenes", "Caching", new { dato = 1 }, null)
+        </div>
+        <div class="col-md-6">
+            @Html.ActionLink("Ir a Princesas", "MostrarImagenes", "Caching", new { dato = 2 }, null)
+        </div>
+    </div>
+</div>

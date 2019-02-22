@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "MostrarImagenes";
+}
+
+@section styles{
+    <link href="~/Content/jquery.countdown.css" rel="stylesheet" />
+}
+@section scripts{
+    <script src="~/Scripts/jquery.countdown.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#tiempo").countdown({
+                "seconds": 5,
+                "warning-time": 2,
+                "normal-class": "countdown-normal",
+                "warning-class": "countdown-warning",
+                "stop-class": "countdown-stop"
+            });
+        });
+    </script>
+}
+    <div class="container">
+
+
+        <div class="row">
+            <h1 style="color:deepskyblue">Bienvenido a Disney</h1>
+
+            <div id="" class="col-md-12">
+                @if (ViewBag.Dato == 0)
+                {
+                    <img src="~/Images/disney.jpg" style="width:400px; height:400px;" />
+                }
+
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-md-6">
+                @Html.ActionLink("Mostrar Héroe", "MostrarImagenes", "Caching", new { dato = 1 }, null)
+            </div>
+            <div class="col-md-6">
+                @Html.ActionLink("Mostrar Princesa", "MostrarImagenes", "Caching", new { dato = 2 }, null)
+            </div>
+        </div>
+
+        <br />
+        <div class="row">
+
+            <div class="col-md-6">
+                @if (ViewBag.ImagenHeroe == null)
+                {
+                    <img src="~/Images/imagenesheroes/@ViewBag.ImagenHeroe" style="width:300px;height:300px;" hidden />
+                }
+                else
+                {
+                    <img src="~/Images/imagenesheroes/@ViewBag.ImagenHeroe" style="width:300px;height:300px;" />
+
+                }
+
+            </div>
+            <div class="col-md-6">
+                @if (ViewBag.ImagenPrincesa == null)
+                {
+                    <img src="~/Images/imagenesprincesas/@ViewBag.ImagenPrincesa" style="width:300px;height:300px;" hidden />
+                }
+                else
+                {
+                    <img src="~/Images/imagenesprincesas/@ViewBag.ImagenPrincesa" style="width:300px;height:300px;" />
+
+                }
+
+            </div>
+
+        </div>
+        <br />
+
+        <div class="row" id="tiempo"></div>
+
+
+    </div>
